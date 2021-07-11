@@ -12,6 +12,8 @@ import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 
+import java.util.Map;
+
 @Slf4j
 public class GoogleStepdefinitions {
 
@@ -58,6 +60,10 @@ public class GoogleStepdefinitions {
 
     @And("Test retrieves details of {string} result")
     public void testRetrievesFirstResultsDetails(String nthResult) {
-
+        Map<String, String> searchResults = searchResultsPage.getSearchResults(nthResult);
+        log.info("Search Result Details: ");
+        for (String resultDetail : searchResults.keySet()) {
+            log.info("{} : {}", resultDetail, searchResults.get(resultDetail));
+        }
     }
 }
