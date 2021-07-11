@@ -59,7 +59,7 @@ public class GoogleStepdefinitions {
     }
 
     @And("Test retrieves details of {string} result")
-    public void testRetrievesFirstResultsDetails(String nthResult) {
+    public void testRetrievesResultsDetails(String nthResult) {
         Map<String, String> searchResults = searchResultsPage.getSearchResults(nthResult);
         log.info("Search Result Details: ");
         for (String resultDetail : searchResults.keySet()) {
